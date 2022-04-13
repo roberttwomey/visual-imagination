@@ -13,12 +13,12 @@ BigGAN
 
 ```
 module purge
-module load mamba tensorflow-gpu/py39/2.7
+module load mamba tensorflow-gpu/py38/2.3
 mamba create --clone $CONDA_DEFAULT_ENV -p /work/emar349/shared/envs/torch-gpu-clip
-module unload tensorflow-gpu/py39/2.7
+module unload tensorflow-gpu/py38/2.3
 conda activate /work/emar349/shared/envs/torch-gpu-clip
 mamba install pytorch torchvision -c pytorch
-mamba install ftfy regex tqdm
+mamba install ftfy regex tqdm git
 pip install git+https://github.com/openai/CLIP.git
 python -m ipykernel install --user --name "$CONDA_DEFAULT_ENV" --display-name "Python ($CONDA_DEFAULT_ENV)"
 cp -r ~/.local/share/jupyter/kernels/torch-gpu-clip /home/emar349/shared/jupyter/kernels
