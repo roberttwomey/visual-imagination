@@ -16,8 +16,10 @@ WORKDIR /app
 COPY *.ipynb /app/
 COPY README.md /app/
 
-# Install additional system dependencies
-RUN apt-get update && apt-get install -y \
+# Fix GPG key issues and install additional system dependencies
+RUN apt-key adv --fetch-keys https://repo.download.nvidia.com/jetson/jetson-ota-public.asc && \
+    apt-get update && \
+    apt-get install -y \
     git \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
