@@ -1,7 +1,7 @@
 # Dockerfile for CLIP+BigGAN visual imagination environment
 # Based on OOD Kernel Setup instructions
 
-FROM nvidia/cuda:11.0-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.8-cudnn8-devel-ubuntu20.04
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
