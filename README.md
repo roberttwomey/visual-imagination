@@ -24,3 +24,27 @@ python -m ipykernel install --user --name "$CONDA_DEFAULT_ENV" --display-name "P
 cp -r ~/.local/share/jupyter/kernels/torch-gpu-clip /home/emar349/shared/jupyter/kernels
 ```
 
+## Docker Setup
+
+### Build the Docker image
+```bash
+docker build -t visual-imagination .
+```
+
+### Run with GPU support
+```bash
+docker run --gpus all -p 8888:8888 -v $(pwd):/app visual-imagination
+```
+
+### Access Jupyter Notebook
+Once the container is running, open your browser and go to:
+- http://localhost:8888
+- Use the token provided in the terminal output to access Jupyter
+
+The Docker container includes:
+- Python 3.8
+- TensorFlow GPU 2.3
+- PyTorch with CUDA support
+- CLIP from OpenAI
+- All required dependencies for CLIP+BigGAN
+
