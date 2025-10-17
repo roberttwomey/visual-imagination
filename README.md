@@ -24,7 +24,12 @@ python -m ipykernel install --user --name "$CONDA_DEFAULT_ENV" --display-name "P
 cp -r ~/.local/share/jupyter/kernels/torch-gpu-clip /home/emar349/shared/jupyter/kernels
 ```
 
-## Docker Setup
+## Docker Setup (Jetson Orin Nano)
+
+### Prerequisites
+- Docker installed on Jetson Orin Nano
+- NVIDIA Container Toolkit installed
+- JetPack 5.1.2 or later
 
 ### Build the Docker image
 ```bash
@@ -54,9 +59,10 @@ Once the container is running, open your browser and go to:
 - Use the token provided in the terminal output to access Jupyter
 
 The Docker container includes:
+- NVIDIA L4T PyTorch base image (ARM64 optimized)
 - Python 3.8
-- TensorFlow GPU 2.3
-- PyTorch with CUDA support
+- TensorFlow 2.13.0 (ARM64 compatible)
+- PyTorch with CUDA support (pre-installed)
 - CLIP from OpenAI
 - All required dependencies for CLIP+BigGAN
 
