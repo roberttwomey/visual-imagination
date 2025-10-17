@@ -32,8 +32,20 @@ docker build -t visual-imagination .
 ```
 
 ### Run with GPU support
+
+**Option 1: Map current directory**
 ```bash
 docker run --gpus all -p 8888:8888 -v $(pwd):/app visual-imagination
+```
+
+**Option 2: Map ~/work/ directory**
+```bash
+docker run --gpus all -p 8888:8888 -v ~/work/:/app visual-imagination
+```
+
+**Option 3: Map both current directory and ~/work/**
+```bash
+docker run --gpus all -p 8888:8888 -v $(pwd):/app -v ~/work/:/work visual-imagination
 ```
 
 ### Access Jupyter Notebook

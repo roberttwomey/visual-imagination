@@ -28,6 +28,10 @@ RUN conda init bash && \
 # Set working directory
 WORKDIR /app
 
+# Copy notebooks and project files
+COPY *.ipynb /app/
+COPY README.md /app/
+
 # Install TensorFlow GPU 2.3 with Python 3.8
 RUN conda create -n base python=3.8 -y && \
     conda activate base && \
